@@ -103,6 +103,16 @@ public class DropDownMenu extends LinearLayout {
 
     }
 
+    public interface OnTabSelectListener {
+        void onSelectTab(int tabIndex, TextView tab);
+    }
+
+    private OnTabSelectListener mListener;
+
+    public void setOnTabSelectListener(OnTabSelectListener listener) {
+        this.mListener = listener;
+    }
+
     /**
      * 初始化DropDownMenu
      *
@@ -147,7 +157,7 @@ public class DropDownMenu extends LinearLayout {
 
     }
 
-    private void addTab(@NonNull List<String> tabTexts, int i) {
+    private void addTab(@NonNull List<String> tabTexts, final int i) {
         final TextView tab = new TextView(getContext());
         tab.setSingleLine();
         tab.setEllipsize(TextUtils.TruncateAt.END);
@@ -163,6 +173,7 @@ public class DropDownMenu extends LinearLayout {
             @Override
             public void onClick(View v) {
                 switchMenu(tab);
+                mListener.onSelectTab(i,tab);
             }
         });
         tabMenuView.addView(tab);

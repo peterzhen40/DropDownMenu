@@ -3,7 +3,7 @@
 ## 简介
 一个实用的多条件筛选菜单，在很多App上都能看到这个效果，如美团，爱奇艺电影票等
 
-我的博客 [自己造轮子--android常用多条件帅选菜单实现思路（类似美团，爱奇艺电影票下拉菜单）](http://www.jianshu.com/p/d9407f799d2d)
+在dongjunkun原库基础上加了tab点击事件
 
 ## 特色
  - 支持多级菜单
@@ -22,15 +22,8 @@
 ## Gradle Dependency
 
 ```
-allprojects {
-    repositories {
-        ...
-        maven { url "https://jitpack.io" }
-    }
-}
-
 dependencies {
-    compile 'com.github.dongjunkun:DropDownMenu:1.0.4'
+    implementation 'cn.peterzhen:DropDownMenu:1.0.4'
 }
 ```
 
