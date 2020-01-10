@@ -173,7 +173,9 @@ public class DropDownMenu extends LinearLayout {
             @Override
             public void onClick(View v) {
                 switchMenu(tab);
-                mListener.onSelectTab(i,tab);
+                if (mListener != null) {
+                    mListener.onSelectTab(i,tab);
+                }
             }
         });
         tabMenuView.addView(tab);
